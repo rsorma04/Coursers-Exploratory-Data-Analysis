@@ -12,4 +12,4 @@
 * plot3.R
 * plot4.R
 
-#### And insert them into your preferred R compiler program.
+#### And insert them into your preferred R compiler then run.
