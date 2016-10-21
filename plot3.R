@@ -10,14 +10,13 @@ total <- data.frame(aggregate(as.numeric(balt_total$Emissions), by = list(balt_t
                               FUN = sum))
 total$x <- round(total[, 3]/1000, 2)
 
-png(filename='plot3.png')
-
-qplot(data=total, x=Group.1, y=x, color=Group.2, facets = ~Group.2) 
+png(filename='plot3.png', width=800, height=500, units='px')
 
 ggplot(data = total, aes(x = factor(Group.1), y = x, fill=Group.2)) + 
   geom_bar(stat = 'identity') +
   scale_fill_brewer(palette="Set1") +
-  facet_grid(facets = ~Group.2)
+  facet_grid(facets = ~Group.2) + ylab("PM2.5 Emmissions in Kilotons") +
+  xlab("Year") + ggtitle("PM2.5 Emmissions by Type - Baltimore Maryland 1999-2008")
 
 
 dev.off()
